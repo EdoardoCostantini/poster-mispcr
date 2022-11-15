@@ -1,0 +1,205 @@
+\documentclass{beamer}
+%% Possible paper sizes: a0, a0b, a1, a2, a3, a4.
+%% Possible orientations: portrait, landscape
+%% Font sizes can be changed using the scale option.
+\usepackage[size = a0,orientation=portrait,scale=1.5]{beamerposter}
+
+% Theme
+\usetheme{LLT-poster}
+% \usecolortheme{ComingClean}
+\usecolortheme{Entrepreneur}
+% \usecolortheme{ConspiciousCreep}  %% VERY garish.
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[scaled=0.92]{inconsolata}
+\usepackage[libertine]{newtxmath}
+\usepackage{booktabs} % for styling kable-Latex tables
+
+% Research Info
+\author[e.costantini@tilburgunviersity.com]{Edoardo Costantini}
+\title{Multiple imputation with Supervised Principal Component Regression}
+\institute{Tilburg University}
+% Optional foot image
+% \footimage{\includegraphics[width=4cm]{images/qrcode.png}}
+
+\begin{document}
+
+% Read R material
+<<section-plots, message = FALSE, warning = FALSE, cache = FALSE, echo = F>>=
+  read_chunk("./code/sec-simulation-study.R")
+@
+
+% What begins here?
+\begin{frame}[fragile]\centering
+
+% Intro statement --------------------------------------------------------------
+
+\begin{columns}
+  \begin{column}{.92\textwidth}
+
+    \begin{block}{}
+      Using \textbf{supervised principal component regression} as an univariate \textbf{imputation} model in \textbf{MICE} is a great way to solve the \textbf{many-variables} imputation problem.
+      \end{block}
+    
+  \end{column}  
+  \end{columns}
+
+  \bigskip
+  {\usebeamercolor[bg]{headline}\hrulefill}
+  \bigskip
+
+% Section 1: Data --------------------------------------------------------------
+
+\begin{columns}[T]
+
+\begin{column}{.46\textwidth}
+
+% Block 1
+\begin{block}{Large data with missing data}
+  <<table-missing-data, message = FALSE, warning = FALSE, echo = F>>=
+  @
+  \end{block}
+
+\end{column}
+\end{columns}
+
+\bigskip
+{\usebeamercolor[bg]{headline}\hrulefill}
+\bigskip
+
+% Section 2: Approaches --------------------------------------------------------
+
+\begin{columns}[T]
+\begin{column}{.46\textwidth}
+
+% Block 2
+\begin{block}{Expert imputation model specification}
+
+  \begin{itemize}
+      \item Remove constants and collinear variables.
+      \item Evaluate connection between variables in the data.
+      \item Apply a correlation-thresholding strategy.
+      \item Extra: use total scores for item scales
+      \item Extra: use single measurement in longitudinal data
+  \end{itemize}
+
+\end{block}
+
+\end{column}
+
+\begin{column}{.46\textwidth}
+
+% Block 3
+\begin{block}{Automatic imputation model specification}
+
+  \begin{itemize}
+    \item MICE with Principal component regression
+    \item MICE with Association-threshold Supervised Principal Component regression
+    \item MICE with Principal Covariates regression
+    \item MICE with Partial least square
+  \end{itemize}
+
+\end{block}
+
+\end{column}
+
+\end{columns}
+
+\bigskip
+{\usebeamercolor[bg]{headline}\hrulefill}
+\bigskip
+
+% Section 3: Plots -------------------------------------------------------------
+
+\begin{columns}
+
+  % First column
+
+  \begin{column}{.46\textwidth}
+    \begin{block}{Percent relative bias}
+
+      \begin{figure}
+        \centering
+          <<plot-prb, message = FALSE, warning = FALSE, echo = F, fig.align = "center", fig.width=16, fig.height=14>>=
+          @
+          \caption{
+            \label{fig:prb-text} 
+            The percent relative bias for the four PCR-based imputation methods is reported (Y-axis) as a function of the number of components used (X-axis).
+            }
+        \end{figure}
+        
+    \end{block}
+    
+  \end{column}  
+
+  % Second column
+
+  \begin{column}{.46\textwidth}
+
+    \begin{block}{Confidence interval coverage}
+      
+      \begin{figure}
+        \centering
+          <<plot-cic, message = FALSE, warning = FALSE, echo = F, fig.align = "center", fig.width=16, fig.height=14>>=
+          @
+          \caption{
+            \label{fig:prb} 
+            The percent relative bias for the four PCR-based imputation methods is reported (Y-axis) as a function of the number of components used (X-axis).
+            }
+        \end{figure}
+    
+    \end{block}
+    \end{column}
+
+  \end{columns}
+
+  \bigskip
+  {\usebeamercolor[bg]{headline}\hrulefill}
+  \bigskip
+
+% Section 4 --------------------------------------------------------------------
+
+\begin{columns}
+
+  % First column
+  \begin{column}{.28\textwidth}
+    \begin{block}{Project summary and code}
+      \begin{center}
+        \includegraphics[width = 15cm]{images/qrcode.png}
+        \end{center}
+    
+      \end{block}
+  \end{column}
+
+  % Second column
+  \begin{column}{.28\textwidth}
+    \begin{block}{Play with the Shiny app}
+      \begin{center}
+        \includegraphics[width = 15cm]{images/qrcode.png}
+        \end{center}
+  
+    \end{block}
+  \end{column}
+
+  % Third column
+  \begin{column}{.28\textwidth}
+    \begin{block}{More research like this}
+      \begin{center}
+        \includegraphics[width = 15cm]{images/qrcode.png}
+        \end{center}
+
+    \end{block}
+  \end{column}
+
+  \end{columns}  
+
+  \bigskip
+  {\usebeamercolor[bg]{headline}\hrulefill}
+  \bigskip
+
+
+\end{frame}
+\end{document}
