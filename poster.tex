@@ -67,6 +67,7 @@
 \usepackage[scaled=0.92]{inconsolata}
 \usepackage[libertine]{newtxmath}
 \usepackage{booktabs} % for styling kable-Latex tables
+\usepackage[most]{tcolorbox} % for blocks of same height w/ tcolorbox
 
 % Research Info
 \author[e.costantini@tilburgunviersity.com]{Edoardo Costantini}
@@ -86,27 +87,18 @@
 % Intro statement --------------------------------------------------------------
 
 \begin{columns}
-  \begin{column}{.92\textwidth}
+  \begin{column}{.46\textwidth}
 
-    \begin{block}{}
-      Using \textbf{supervised principal component regression} as an univariate \textbf{imputation} model in \textbf{MICE} is a great way to solve the \textbf{many-variables} imputation problem.
+    \begin{block}{In one sentence}
+      \Large Using \textbf{supervised principal component regression} as a univariate \textbf{imputation} model in \textbf{MICE} is a great way to solve the \textbf{many-variables} imputation problem.
       \end{block}
     
   \end{column}  
-  \end{columns}
 
-  \bigskip
-  {\usebeamercolor[bg]{headline}\hrulefill}
-  \bigskip
+  \begin{column}{.46\textwidth}
 
-% Section 1: Data --------------------------------------------------------------
-
-\begin{columns}[T]
-        
-\begin{column}{.70\textwidth}
-
-% Block 1
-\begin{block}{Large data with missing values (-)}
+  % Block 1
+  \begin{block}{Large data with missing values (-)}
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{table}
 \centering
@@ -114,13 +106,13 @@
 \toprule
   & $x_1$ & $x_2$ & $x_3$ & $x_4$ & ... & $w_{141}$ & $w_{142}$ & $w_{143}$ & $w_{144}$ & ... & $z_{(p-3)}$ & $z_{(p-2)}$ & $z_{(p-1)}$ & $z_p$\\
 \midrule
-Esther & 1 & - & 6 & 2 &  & 4 & 1 & 1 & 2 &  & 5 & 2 & 1 & 2\\
-Anton & - & - & 9 & 5 &  & 8 & 8 & 1 & 10 &  & 4 & 3 & 5 & 9\\
-Leonie & - & 6 & - & 5 &  & 9 & 6 & 1 & 9 &  & 3 & 1 & 3 & 5\\
-Joran & 8 & 1 & 1 & - &  & 2 & 1 & 4 & 6 &  & 9 & 9 & 8 & 3\\
+Esther & 2 & - & 5 & 7 &  & 10 & 8 & 9 & 7 &  & 5 & 7 & 10 & 2\\
+Anton & - & - & 7 & 8 &  & 9 & 10 & 4 & 10 &  & 6 & 10 & 5 & 4\\
+Leonie & - & 6 & - & 4 &  & 3 & 7 & 8 & 3 &  & 3 & 6 & 10 & 9\\
+Joran & 6 & 3 & 1 & - &  & 10 & 6 & 4 & 1 &  & 2 & 1 & 6 & 10\\
 ... &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
 \addlinespace
-Mihai & - & 4 & - & 3 &  & 8 & 3 & 10 & 4 &  & 3 & 7 & 5 & 5\\
+Mihai & - & 9 & - & 9 &  & 6 & 9 & 10 & 3 &  & 7 & 3 & 7 & 4\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -128,17 +120,18 @@ Mihai & - & 4 & - & 3 &  & 8 & 3 & 10 & 4 &  & 3 & 7 & 5 & 5\\
 \end{knitrout}
   \end{block}
 
-\end{column}
-\end{columns}
+  \end{column}
 
-\bigskip
-{\usebeamercolor[bg]{headline}\hrulefill}
-\bigskip
+  \end{columns}
+
+  \bigskip
+  {\usebeamercolor[bg]{headline}\hrulefill}
+  \bigskip
 
 % Section 2: Approaches --------------------------------------------------------
 
 \begin{columns}[T]
-\begin{column}{.46\textwidth}
+\begin{column}{.42\textwidth}
 
 % Block 2
 \begin{block}{Expert imputation model specification}
@@ -155,7 +148,15 @@ Mihai & - & 4 & - & 3 &  & 8 & 3 & 10 & 4 &  & 3 & 7 & 5 & 5\\
 
 \end{column}
 
-\begin{column}{.46\textwidth}
+\begin{column}{.06\textwidth}
+  \vspace{5cm}
+  \begin{center}
+    \huge \textbf{VS}
+    \end{center}
+
+  \end{column}
+
+\begin{column}{.42\textwidth}
 
 % Block 3
 \begin{block}{Automatic imputation model specification}

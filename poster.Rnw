@@ -17,6 +17,7 @@
 \usepackage[scaled=0.92]{inconsolata}
 \usepackage[libertine]{newtxmath}
 \usepackage{booktabs} % for styling kable-Latex tables
+\usepackage[most]{tcolorbox} % for blocks of same height w/ tcolorbox
 
 % Research Info
 \author[e.costantini@tilburgunviersity.com]{Edoardo Costantini}
@@ -38,42 +39,34 @@
 % Intro statement --------------------------------------------------------------
 
 \begin{columns}
-  \begin{column}{.92\textwidth}
+  \begin{column}{.46\textwidth}
 
-    \begin{block}{}
-      Using \textbf{supervised principal component regression} as an univariate \textbf{imputation} model in \textbf{MICE} is a great way to solve the \textbf{many-variables} imputation problem.
+    \begin{block}{In one sentence}
+      \Large Using \textbf{supervised principal component regression} as a univariate \textbf{imputation} model in \textbf{MICE} is a great way to solve the \textbf{many-variables} imputation problem.
       \end{block}
     
   \end{column}  
+
+  \begin{column}{.46\textwidth}
+
+  % Block 1
+  \begin{block}{Large data with missing values (-)}
+  <<table-missing-data, message = FALSE, warning = FALSE, echo = F>>=
+  @
+  \end{block}
+
+  \end{column}
+
   \end{columns}
 
   \bigskip
   {\usebeamercolor[bg]{headline}\hrulefill}
   \bigskip
 
-% Section 1: Data --------------------------------------------------------------
-
-\begin{columns}[T]
-        
-\begin{column}{.70\textwidth}
-
-% Block 1
-\begin{block}{Large data with missing values (-)}
-  <<table-missing-data, message = FALSE, warning = FALSE, echo = F>>=
-  @
-  \end{block}
-
-\end{column}
-\end{columns}
-
-\bigskip
-{\usebeamercolor[bg]{headline}\hrulefill}
-\bigskip
-
 % Section 2: Approaches --------------------------------------------------------
 
 \begin{columns}[T]
-\begin{column}{.46\textwidth}
+\begin{column}{.42\textwidth}
 
 % Block 2
 \begin{block}{Expert imputation model specification}
@@ -90,7 +83,15 @@
 
 \end{column}
 
-\begin{column}{.46\textwidth}
+\begin{column}{.06\textwidth}
+  \vspace{5cm}
+  \begin{center}
+    \huge \textbf{VS}
+    \end{center}
+
+  \end{column}
+
+\begin{column}{.42\textwidth}
 
 % Block 3
 \begin{block}{Automatic imputation model specification}
