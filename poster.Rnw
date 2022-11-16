@@ -168,7 +168,7 @@
   \begin{column}{.28\textwidth}
     \begin{block}{Project summary and code}
       \begin{center}
-        \includegraphics[width = 15cm]{images/qrcode.png}
+        \includegraphics[width = 15cm]{images/GitHub.png}
         \end{center}
     
       \end{block}
@@ -178,7 +178,7 @@
   \begin{column}{.28\textwidth}
     \begin{block}{Play with the Shiny app}
       \begin{center}
-        \includegraphics[width = 15cm]{images/qrcode.png}
+        \includegraphics[width = 15cm]{images/Shiny_app.png}
         \end{center}
   
     \end{block}
@@ -188,7 +188,7 @@
   \begin{column}{.28\textwidth}
     \begin{block}{More research like this}
       \begin{center}
-        \includegraphics[width = 15cm]{images/qrcode.png}
+        \includegraphics[width = 15cm]{images/Personal_website.png}
         \end{center}
 
     \end{block}
