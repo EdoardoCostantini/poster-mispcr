@@ -6,14 +6,50 @@
 
 # ---- table-missing-data ----
 
-ids <- c("Mihai", "Anton", "Leonie", "Joran", "Esther")
-items <- matrix(sample(1:10, length(ids) * 6, replace = TRUE), ncol = 6)
+# Define respondents' names
+ids <- c("Esther", "Anton", "Leonie", "Joran", "...", "Mihai")
 
-info <- data.frame(ids, items)
+# Define how many columns with data we want
+target_ncol <- 4 * 3
 
-colnames(info) <- c("Respondent", "$X_1$", "$X_2$", "$X_3$", "$X_{157}$", "$X_{(p-1)}$", "$X_p$")
+# Create the columns with data
+items <- as.data.frame(matrix(
+  sample(1:10, length(ids) * target_ncol, replace = TRUE),
+  ncol = target_ncol
+))
 
-kbl(info, booktabs = T, "latex", escape = FALSE, align = c("r", rep("c", ncol(info)-1))) %>%
+# Add missing values
+items[c(2, 3, 5), 1] <- "-"
+items[c(1, 2), 2] <- "-"
+items[c(3, 5), 3] <- "-"
+items[c(4, 7), 4] <- "-"
+
+# # Put observations and data together
+# info <- data.frame(ids, items)
+
+# Add a ellipsis row
+items <- rbind(items[1:4, ], " ", items[5, ])
+
+# Add two ellipsis columns
+items <- cbind(items[, 1:4], " ", items[, 5:8], " ", items[, -c(1:8)])
+
+# Give meaningful names
+colnames(items) <- c(
+  "$x_1$", "$x_2$", "$x_3$", "$x_4$",
+  "...",
+  "$w_{141}$", "$w_{142}$", "$w_{143}$", "$w_{144}$",
+  "...",
+  "$z_{(p-3)}$", "$z_{(p-2)}$", "$z_{(p-1)}$", "$z_p$"
+)
+
+# Give meaningful rownames
+rownames(items) <- ids
+
+# # Remove rownames
+# rownames(items) <- NULL
+
+# Make latex table
+kbl(items, booktabs = T, "latex", escape = FALSE, align = c("r", rep("c", ncol(items)-1))) %>%
   kable_classic(full_width = F, position = "center")
 
 # ---- plot-prb ----

@@ -54,11 +54,11 @@
 % Section 1: Data --------------------------------------------------------------
 
 \begin{columns}[T]
-
-\begin{column}{.46\textwidth}
+        
+\begin{column}{.70\textwidth}
 
 % Block 1
-\begin{block}{Large data with missing data}
+\begin{block}{Large data with missing values (-)}
   <<table-missing-data, message = FALSE, warning = FALSE, echo = F>>=
   @
   \end{block}
@@ -127,7 +127,7 @@
           @
           \caption{
             \label{fig:prb-text} 
-            The percent relative bias for the four PCR-based imputation methods is reported (Y-axis) as a function of the number of components used (X-axis).
+            The percent relative bias (Y-axis) for the four PCR-based imputation methods (grid rows) is reported as a function of the number of components used (X-axis).
             }
         \end{figure}
         
@@ -147,7 +147,7 @@
           @
           \caption{
             \label{fig:prb} 
-            The percent relative bias for the four PCR-based imputation methods is reported (Y-axis) as a function of the number of components used (X-axis).
+            The confidence interval coverage for the four PCR-based imputation methods (grid rows) is reported as a function of the number of components used (X-axis).
             }
         \end{figure}
     

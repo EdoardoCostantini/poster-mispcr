@@ -43,6 +43,13 @@ results$coverage <- round(results$coverage, 2)
 # Change the names of the methods
 levels(results$method) <- c("MI-PCR", "MI-SPCR", "MI-PLSR", "MI-PCovR", "MI-QP", "MI-AM", "MI-ALL", "CC", "Full data")
 
+# Make lv a factor with levels
+results$nla <- factor(
+    results$nla,
+    levels = sort(unique(results$nla)),
+    labels = c("2 latent vars", "10 latent variables", "50 latent variables")
+)
+
 # Quality indicators -----------------------------------------------------------
 
 # PRB
