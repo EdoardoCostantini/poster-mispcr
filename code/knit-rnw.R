@@ -43,6 +43,9 @@ results$coverage <- round(results$coverage, 2)
 # Change the names of the methods
 levels(results$method) <- c("MI-PCR", "MI-SPCR", "MI-PLSR", "MI-PCovR", "MI-QP", "MI-AM", "MI-ALL", "CC", "Full data")
 
+# Adjust order of levels
+results$method <- factor(results$method, levels = c("MI-PCR", "MI-SPCR", "MI-PCovR", "MI-PLSR", "MI-QP", "MI-AM", "MI-ALL", "CC", "Full data"))
+
 # Make lv a factor with levels
 results$nla <- factor(
     results$nla,

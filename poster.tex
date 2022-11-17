@@ -71,8 +71,8 @@
 
 % Research Info
 \author[e.costantini@tilburgunviersity.com]{Edoardo Costantini}
-\title{Multiple imputation with Supervised Principal Component Regression}
-\institute{Tilburg University}
+\title{Solving the `many variables' problem in MICE with supervised principal component regression}
+\institute{Tilburg University, Netherlands}
 % Optional foot image
 % \footimage{\includegraphics[width=4cm]{images/qrcode.png}}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -86,11 +86,13 @@
 
 % Intro statement --------------------------------------------------------------
 
-\begin{columns}
+\begin{columns}[c]
   \begin{column}{.46\textwidth}
 
     \begin{block}{In one sentence}
+      \vspace{2.05cm}
       \Large Using \textbf{supervised principal component regression} as a univariate \textbf{imputation} model in \textbf{MICE} is a great way to solve the \textbf{many-variables} imputation problem.
+      \vspace{2.05cm}
       \end{block}
     
   \end{column}  
@@ -106,13 +108,13 @@
 \toprule
   & $x_1$ & $x_2$ & $x_3$ & $x_4$ & ... & $w_{141}$ & $w_{142}$ & $w_{143}$ & $w_{144}$ & ... & $z_{(p-3)}$ & $z_{(p-2)}$ & $z_{(p-1)}$ & $z_p$\\
 \midrule
-Esther & 2 & - & 5 & 7 &  & 10 & 8 & 9 & 7 &  & 5 & 7 & 10 & 2\\
-Anton & - & - & 7 & 8 &  & 9 & 10 & 4 & 10 &  & 6 & 10 & 5 & 4\\
-Leonie & - & 6 & - & 4 &  & 3 & 7 & 8 & 3 &  & 3 & 6 & 10 & 9\\
-Joran & 6 & 3 & 1 & - &  & 10 & 6 & 4 & 1 &  & 2 & 1 & 6 & 10\\
+Esther & 3 & - & 4 & 6 &  & 7 & 6 & 2 & 2 &  & 5 & 4 & 9 & 8\\
+Anton & - & - & 3 & 1 &  & 8 & 3 & 7 & 10 &  & 8 & 10 & 3 & 7\\
+Leonie & - & 7 & - & 4 &  & 5 & 9 & 3 & 6 &  & 9 & 10 & 9 & 2\\
+Joran & 1 & 4 & 4 & - &  & 9 & 1 & 5 & 5 &  & 3 & 1 & 9 & 8\\
 ... &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
 \addlinespace
-Mihai & - & 9 & - & 9 &  & 6 & 9 & 10 & 3 &  & 7 & 3 & 7 & 4\\
+Mihai & - & 8 & - & 4 &  & 10 & 6 & 2 & 9 &  & 2 & 5 & 2 & 10\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -125,7 +127,6 @@ Mihai & - & 9 & - & 9 &  & 6 & 9 & 10 & 3 &  & 7 & 3 & 7 & 4\\
   \end{columns}
 
   \bigskip
-  {\usebeamercolor[bg]{headline}\hrulefill}
   \bigskip
 
 % Section 2: Approaches --------------------------------------------------------
@@ -139,9 +140,9 @@ Mihai & - & 9 & - & 9 &  & 6 & 9 & 10 & 3 &  & 7 & 3 & 7 & 4\\
   \begin{itemize}
       \item Remove constants and collinear variables.
       \item Evaluate connection between variables in the data.
-      \item Apply a correlation-thresholding strategy.
-      \item Extra: use total scores for item scales
-      \item Extra: use single measurement in longitudinal data
+      \item Apply a correlation-threshold selection.
+      \item Extra: use total scores for item scales.
+      \item Extra: use single measurement in longitudinal data.
   \end{itemize}
 
 \end{block}
@@ -162,10 +163,10 @@ Mihai & - & 9 & - & 9 &  & 6 & 9 & 10 & 3 &  & 7 & 3 & 7 & 4\\
 \begin{block}{Automatic imputation model specification}
 
   \begin{itemize}
-    \item MICE with Principal component regression
-    \item MICE with Association-threshold Supervised Principal Component regression
-    \item MICE with Principal Covariates regression
-    \item MICE with Partial least square
+    \item MICE with Principal component regression (MI-PCR)
+    \item MICE with Association-threshold supervised principal component regression (MI-SPCR)
+    \item MICE with Principal covariates regression (MI-PCovR)
+    \item MICE with Partial least square (MI-PLSR)
   \end{itemize}
 
 \end{block}
@@ -200,7 +201,7 @@ Mihai & - & 9 & - & 9 &  & 6 & 9 & 10 & 3 &  & 7 & 3 & 7 & 4\\
 \end{knitrout}
           \caption{
             \label{fig:prb-text} 
-            The percent relative bias (Y-axis) for the four PCR-based imputation methods (grid rows) is reported as a function of the number of components used (X-axis).
+            The percent relative bias (Y-axis) for the correlation coefficient between $x_1$ and $x_2$, obtained after imputing the missing values with the four PCR-based imputation methods (grid rows), is reported as a function of the number of components used (X-axis).
             }
         \end{figure}
         
@@ -227,7 +228,7 @@ Mihai & - & 9 & - & 9 &  & 6 & 9 & 10 & 3 &  & 7 & 3 & 7 & 4\\
 \end{knitrout}
           \caption{
             \label{fig:prb} 
-            The confidence interval coverage for the four PCR-based imputation methods (grid rows) is reported as a function of the number of components used (X-axis).
+            The confidence interval coverage for the correlation coefficient between $x_1$ and $x_2$, obtained after imputing the missing values with the four PCR-based imputation methods (grid rows), is reported as a function of the number of components used (X-axis).
             }
         \end{figure}
     

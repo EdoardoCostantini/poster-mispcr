@@ -13,6 +13,7 @@ ids <- c("Esther", "Anton", "Leonie", "Joran", "...", "Mihai")
 target_ncol <- 4 * 3
 
 # Create the columns with data
+set.seed(20221117)
 items <- as.data.frame(matrix(
   sample(1:10, length(ids) * target_ncol, replace = TRUE),
   ncol = target_ncol
@@ -44,9 +45,6 @@ colnames(items) <- c(
 
 # Give meaningful rownames
 rownames(items) <- ids
-
-# # Remove rownames
-# rownames(items) <- NULL
 
 # Make latex table
 kbl(items, booktabs = T, "latex", escape = FALSE, align = c("r", rep("c", ncol(items)-1))) %>%
@@ -103,8 +101,8 @@ p1 <- results %>%
   scale_y_continuous(position = "right") +
   theme(
     # Text
-    text = element_text(size = 25),
-    axis.title = element_text(size = 25),
+    text = element_text(size = 20),
+    axis.title = element_text(size = 20),
     axis.title.y = element_blank(),
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
@@ -176,8 +174,8 @@ p2 <- results %>%
   ) +
   theme(
     # Text
-    text = element_text(size = 25),
-    axis.title = element_text(size = 25),
+    text = element_text(size = 20),
+    axis.title = element_text(size = 20),
     axis.title.y = element_blank(),
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
@@ -250,8 +248,8 @@ p3 <- results %>%
   ) +
   theme(
     # Text
-    text = element_text(size = 25),
-    axis.title = element_text(size = 25),
+    text = element_text(size = 20),
+    axis.title = element_text(size = 20),
     axis.title.y = element_blank(),
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
@@ -377,8 +375,8 @@ p1 <- toplot_l2 %>%
   coord_cartesian(ylim = input$ylim) +
   theme(
     # Text
-    text = element_text(size = 25),
-    axis.title = element_text(size = 25),
+    text = element_text(size = 20),
+    axis.title = element_text(size = 20),
     axis.title.y = element_blank(),
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
@@ -472,8 +470,8 @@ p2 <- toplot_l10 %>%
   ) +
   theme(
     # Text
-    text = element_text(size = 25),
-    axis.title = element_text(size = 25),
+    text = element_text(size = 20),
+    axis.title = element_text(size = 20),
     axis.title.y = element_blank(),
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
@@ -569,8 +567,8 @@ p3 <- toplot_l50 %>%
   ) +
   theme(
     # Text
-    text = element_text(size = 25),
-    axis.title = element_text(size = 25),
+    text = element_text(size = 20),
+    axis.title = element_text(size = 20),
     axis.title.y = element_blank(),
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
