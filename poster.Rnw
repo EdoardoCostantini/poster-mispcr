@@ -19,6 +19,9 @@
 \usepackage{booktabs} % for styling kable-Latex tables
 \usepackage[most]{tcolorbox} % for blocks of same height w/ tcolorbox
 
+% Margins
+\setbeamersize{text margin left=30mm,text margin right=30mm}
+
 % Research Info
 \author[e.costantini@tilburgunviersity.com]{Edoardo Costantini}
 \title{Solving the `many variables' problem in MICE with supervised principal component regression}
