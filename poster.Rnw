@@ -20,10 +20,10 @@
 \usepackage[most]{tcolorbox} % for blocks of same height w/ tcolorbox
 
 % Margins
-\setbeamersize{text margin left=30mm,text margin right=30mm}
+% \setbeamersize{text margin left=30mm,text margin right=50mm}
 
 % Research Info
-\author[e.costantini@tilburgunviersity.com]{Edoardo Costantini}
+\author[e.costantini@tilburguniversity.edu]{Edoardo Costantini}
 \title{Solving the `many variables' problem in MICE with supervised principal component regression}
 \institute{Tilburg University, Netherlands}
 % Optional foot image

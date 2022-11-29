@@ -2,7 +2,7 @@
 # Objective: Initialize the environment and knit any main document
 # Author:    Edoardo Costantini
 # Created:   2022-10-13
-# Modified:  2022-11-14
+# Modified:  2022-11-29
 # Notes: 
 
 # Parse argument from compile script
@@ -25,6 +25,16 @@ source("./code/functions.R")
 # Data -------------------------------------------------------------------------
 
 results <- readRDS("./data/20220827-094950-run-lisa-9945538-9944296-9943298-main-res.rds")
+pcovr_fix <- readRDS("./data/20221126-121849-pcovr-correct-alpha-tuning-pc-main-res.rds")
+
+# Remove all pcovr from main
+results <- results[results$method != "pcovr", ]
+
+# Remove all other methods from pcovr results
+pcovr_fix <- pcovr_fix[pcovr_fix$method == "pcovr", ]
+
+# Append PCovR from new results
+results <- rbind(results, pcovr_fix)
 
 # Pre-processing for plots -----------------------------------------------------
 
