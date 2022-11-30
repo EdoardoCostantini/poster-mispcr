@@ -18,6 +18,7 @@
 \usepackage[libertine]{newtxmath}
 \usepackage{booktabs} % for styling kable-Latex tables
 \usepackage[most]{tcolorbox} % for blocks of same height w/ tcolorbox
+\usepackage{fontawesome5} % for favicons
 
 % Margins
 % \setbeamersize{text margin left=30mm,text margin right=50mm}
@@ -44,9 +45,9 @@
 \begin{columns}[c]
   \begin{column}{.46\textwidth}
 
-    \begin{block}{In one sentence}
+    \begin{block}{\centering In one sentence}
       \vspace{2.05cm}
-      \Large Using \textbf{supervised principal component regression} as a univariate \textbf{imputation} model in \textbf{MICE} is a great way to solve the \textbf{many-variables} imputation problem.
+      \Large Using \textbf{supervised principal component regression} as a univariate \textbf{imputation} model in \textbf{MICE} is a great way to automatically define imputation models.
       \vspace{2.05cm}
       \end{block}
     
@@ -55,7 +56,7 @@
   \begin{column}{.46\textwidth}
 
   % Block 1
-  \begin{block}{Large data with missing values (-)}
+  \begin{block}{\centering Large data with missing values (-)}
   <<table-missing-data, message = FALSE, warning = FALSE, echo = F>>=
   @
   \end{block}
@@ -73,7 +74,7 @@
 \begin{column}{.42\textwidth}
 
 % Block 2
-\begin{block}{Expert imputation model specification}
+\begin{block}{\centering Expert imputation model specification}
 
   \begin{itemize}
       \item Remove constants and collinear variables.
@@ -98,7 +99,7 @@
 \begin{column}{.42\textwidth}
 
 % Block 3
-\begin{block}{Automatic imputation model specification}
+\begin{block}{\centering Automatic imputation model specification}
 
   \begin{itemize}
     \item MICE with Principal component regression (MI-PCR)
@@ -124,7 +125,7 @@
   % First column
 
   \begin{column}{.46\textwidth}
-    \begin{block}{Percent relative bias}
+    \begin{block}{\centering Percent relative bias}
 
       \begin{figure}
         \centering
@@ -144,7 +145,7 @@
 
   \begin{column}{.46\textwidth}
 
-    \begin{block}{Confidence interval coverage}
+    \begin{block}{\centering Confidence interval coverage}
       
       \begin{figure}
         \centering
@@ -171,31 +172,36 @@
 
   % First column
   \begin{column}{.28\textwidth}
-    \begin{block}{Project summary and code}
-      \begin{center}
-        \includegraphics[width = 15cm]{images/GitHub.png}
-        \end{center}
-    
-      \end{block}
+    \begin{block}{\centering Project summary and code}
+      \begin{figure}
+        \centering
+        <<QR-code-github, message = FALSE, warning = FALSE, echo = F, fig.align = "center", fig.width=unit(5.5,"cm"), fig.height=unit(5.5,"cm")>>=
+        @
+      \end{figure}
+
+    \end{block}
   \end{column}
 
   % Second column
   \begin{column}{.28\textwidth}
-    \begin{block}{Play with the Shiny app}
-      \begin{center}
-        \includegraphics[width = 15cm]{images/Shiny_app.png}
-        \end{center}
-  
+    \begin{block}{\centering Play with the Shiny app}
+      \begin{figure}
+        \centering
+        <<QR-code-shiny, message = FALSE, warning = FALSE, echo = F, fig.align = "center", fig.width=unit(5.5,"cm"), fig.height=unit(5.5,"cm")>>=
+        @
+      \end{figure}
+
     \end{block}
   \end{column}
 
   % Third column
   \begin{column}{.28\textwidth}
-    \begin{block}{More research like this}
-      \begin{center}
-        \includegraphics[width = 15cm]{images/Personal_website.png}
-        \end{center}
-
+    \begin{block}{\centering More research like this}
+      \begin{figure}
+        \centering
+        <<QR-code-research, message = FALSE, warning = FALSE, echo = F, fig.align = "center", fig.width=unit(5.5,"cm"), fig.height=unit(5.5,"cm")>>=
+        @
+      \end{figure}
     \end{block}
   \end{column}
 

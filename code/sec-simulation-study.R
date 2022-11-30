@@ -597,3 +597,21 @@ p1 + p2 + p3 +
     guides = "collect"
   ) &
   theme(legend.position = "bottom")
+
+# ---- QR-code-github ----
+# GitHub project summary
+
+QR_github <- qr_code("https://github.com/EdoardoCostantini/mi-spcr")
+plot(QR_github)
+
+# ---- QR-code-shiny ----
+# Shiny app
+
+QR_shiny <- qr_code("https://edoardocostantini.shinyapps.io/mi-pcr-plot/?_ga=2.193807589.95894774.1658930327-1213691852.1658930327")
+plot(QR_shiny)
+
+# ---- QR-code-research ----
+# Link to my publications
+
+QR_research <- qr_code("https://edoardocostantini.github.io/research.html")
+plot(QR_research)

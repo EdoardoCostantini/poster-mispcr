@@ -18,6 +18,7 @@ library(tidyr)   # for reshaping data for tables
 library(patchwork) # for adding plots to each other easily 
 library(english) # for translating numbers to words
 library(kableExtra) # for tables
+library(qrcode) # for qr code generation
 
 # Source plotting functions
 source("./code/functions.R")
